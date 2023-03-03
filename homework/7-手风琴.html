@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /*  */
+
+        #accordion {
+            width: 80vw;
+
+        }
+
+        button {
+            background-color: antiquewhite;
+            width: 100%;
+            border: none;
+            padding: 10px 0;
+            text-align: left;
+            position: relative;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: cadetblue;
+        }
+
+        button::after {
+            content: '+';
+            font-size: 20px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .content {
+            background-color: aquamarine;
+            /* height: 0; */
+            max-height: 0;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .content p {
+            padding: 0 20px;
+        }
+
+        .show::after{
+            content: '-';
+            
+        }
+
+        .show + .content{
+            max-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="accordion">
+        <div class="item">
+            <button>部分一:HTML</button>
+            <div class="content">
+                <p>我玩电脑问的我安慰法肺癌会务费覅我骄傲感悟哦该各玩各娃娃尬舞个我哦啊我给娃金娃发掉</p>
+                <p>我玩电脑问的我安慰法肺癌会务费覅我骄傲感悟哦该各玩各娃娃尬舞个我哦啊我给娃金娃发掉</p>
+            </div>
+        </div>
+        <div class="item">
+            <button>部分二:CSS</button>
+            <div class="content">
+                <p>我玩电脑问的我安慰法肺癌会务费覅我骄傲感悟哦该各玩各娃娃尬舞个我哦啊我给娃金娃发掉</p>
+                <p>我玩电脑问的我安慰法肺癌会务费覅我骄傲感悟哦该各玩各娃娃尬舞个我哦啊我给娃金娃发掉</p>
+            </div>
+        </div>
+        <div class="item">
+            <button>部分三:JavaScript</button>
+            <div class="content">
+                <p>我玩电脑问的我安慰法肺癌会务费覅我骄傲感悟哦该各玩各娃娃尬舞个我哦啊我给娃金娃发掉</p>
+                <p>我玩电脑问的我安慰法肺癌会务费覅我骄傲感悟哦该各玩各娃娃尬舞个我哦啊我给娃金娃发掉</p>
+            </div>
+        </div>
+    </section>
+    <script>
+
+        const btnArr = document.querySelectorAll('button')
+
+        let last = btnArr[0]
+        btnArr.forEach((btn) => {
+            
+            btn.onclick = () => {
+
+                // 条件1. btn.classList.contains('show') 查询元素里是否有类性名 有就执行删除类名
+                // 条件2. btn == last 再次点击的按钮和上次的一样 就执行删除类名
+                if (btn == last) {
+                    // 点击的是同一个按钮时执行
+                    btn.classList.toggle('show') // toggle ：有类名就删，没有就加
+                }else{
+                    // 点击的不是同一个按钮时执行
+                    last.classList.remove('show')
+                    btn.classList.add('show')
+                    last = btn
+                }
+
+                
+                //     // ②，修改上一个btn的max-height=0
+                // last.nextElementSibling.style.maxHeight = '0px'
+                //     //①, button的下一个兄弟(div)
+                // btn.nextElementSibling.style.maxHeight = '200px'
+                //     // ③.更新last为当前点击的btn
+                // last = btn
+
+            }
+
+        })
+
+
+        
+
+    </script>
+</body>
+
+</html>
