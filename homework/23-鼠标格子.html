@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #000;
+        }
+        .app{
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            /* height: 700px; */
+            flex-wrap: wrap;
+        }
+        .app div{
+            background-color: #333;
+            width: 90px;
+            height: 90px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="app"></div>
+    <script>
+        const app = document.querySelector('.app')
+
+        let colorArr = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+
+       
+            function Color() {
+                return Math.round(Math.random()*(7-0)-0)
+            }
+            console.log();
+        
+        
+        for (let i = 0; i < 800; i++) {
+            let div = document.createElement('div')
+            
+            div.onmouseover = ()=>{
+                let c = colorArr[Color()]
+                div.style.transition = '0s';
+                div.style.backgroundColor = `${c}`
+                div.style.boxShadow = `0 0 50px 0px ${c}`
+            }
+            div.onmouseout = ()=>{
+                div.style.transition = '1.5s';
+                div.style.backgroundColor = '#333'
+                div.style.boxShadow = `0 0 0 0 #333`
+            }
+
+            app.appendChild(div)
+        }
+
+
+
+
+    </script>
+</body>
+</html>

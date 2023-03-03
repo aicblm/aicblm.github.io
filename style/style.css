@@ -1,0 +1,35 @@
+a{
+    text-decoration: none;
+    color: rgb(5, 133, 133);
+}
+
+/* 找不到或没做 */
+#adtitle{
+    height: 60px;
+    line-height: 60px;
+}
+
+/* 半成品 */
+.half{
+    color: blue;
+}
+
+.not{
+    color: red;
+}
+p{
+    font-weight: 700;
+    animation: dx 2s infinite;
+}
+@keyframes dx {
+    0%{
+        font-size: 16px;
+    }
+    50%{
+        font-size: 20px;
+        transform: rotateX(360deg);
+    }
+    100%{
+        font-size: 16px;
+    }
+}

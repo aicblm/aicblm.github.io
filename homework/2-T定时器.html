@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 600px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            margin: 0 auto;
+            position: relative;
+            background-color: rgb(138, 138, 138);
+            top: -200px;
+            transition: .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>广告3</p>
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        const p = document.querySelector('p')
+        
+
+        let num = 3
+        let timer
+
+        setTimeout(() => {
+            div.style.top = '250px'
+
+            timer = setInterval(() => {
+                num--
+                p.innerHTML = `广告${num}`
+
+                if (num == 0) {
+                    div.style.top = '-200px'
+                    clearInterval(timer)
+                }
+            }, 1000);
+
+        }, 2000);
+
+
+
+
+    </script>
+</body>
+
+</html>

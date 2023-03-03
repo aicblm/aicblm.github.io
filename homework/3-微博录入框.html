@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        width: 240px;
+        /* border: 1px solid #000; */
+        margin: 0 auto;
+    }
+    span{
+        float: left;
+    }
+    input{
+        float: right;
+    }
+    
+</style>
+<body>
+
+    <div>
+        <form action="">
+            <textarea name="" id="" cols="30" rows="10"></textarea><br>
+            <span>0</span><input type="button" value="发送">
+        </form>
+    </div>
+
+    <script>
+        const text = document.querySelector('textarea')
+        const span = document.querySelector('span')
+
+        //text.addEventListener('compositionupdate',fn)//当一个字符被添加到正在编写的文本段落中时触发
+
+
+    // 这个变量是来控制什么时候触发value改变事件 
+    let doing = true ;
+    let n = 0
+
+    text.addEventListener('compositionstart',function(){
+        // 当我们触发合成事件时，就不让value改变事件触发
+        // 如果触发的话它就会把你输入的拼音也算入到数量中
+        doing = false;
+    });
+
+    // 当我们打完字后在改数量
+    text.addEventListener('compositionend',function(){
+        doing = true;
+        if(doing){
+            n = text.value.length
+            span.innerHTML = n
+        }
+        if(n > 10){
+            span.style.color = 'red'
+            span.innerHTML = -(n-10)
+        }else{
+            span.style.color = '#000'
+        }
+    });
+
+    // 当触发合成事件 时 就不触发value改变事件 
+    text.addEventListener('input',function(){
+        if(doing){
+            n = text.value.length
+            span.innerHTML = n
+        }
+        if(n > 10){
+            span.style.color = 'red'
+            span.innerHTML = -(n-10)
+        }else{
+            span.style.color = '#000'
+        }
+    });
+ 
+    
+
+
+    </script>
+</body>
+
+</html>

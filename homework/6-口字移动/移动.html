@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+    <script src="myFn.js"></script>
+</head>
+<body>
+    <button>按钮</button>
+    <div></div>
+    <script>
+        // 核心目标：修改div的left值
+        // 1.获取元素
+        const btn = document.querySelector('button')
+        const div = document.querySelector('div')
+
+        // 2.创建变量
+        // let target = 500
+        // let step = 10
+        let timer
+
+
+        
+
+        // 3.注册事件处理程序
+        btn.addEventListener('click',()=>{
+            // moveFn(元素，属性，目标，移动，毫秒，回调函数)
+            moveFn(div,'left',500,10,20,function () {
+                // alert('到达目标点')
+                moveFn(div,'top',500,10,20,function () {
+                    moveFn(div,'left',50,10,20,function () {
+                        moveFn(div,'top',50,10,20)
+                    })
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

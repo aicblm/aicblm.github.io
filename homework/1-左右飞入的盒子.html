@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        div {
+            display: flex;
+            width: 30vw;
+            height: 30vh;
+            background-color: aqua;
+            justify-content: center;
+            border: 1px solid #000;
+            border-radius: 20px;
+            transform: translateX(-1000px);
+            transition: .5s;
+            opacity: 0;
+        }
+
+        div:nth-of-type(even) {
+            transform: translateX(1000px);
+        }
+
+        div.show {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>拖动滚动条查看效果</h1>
+    <div>你好1</div>
+    <div>你好2</div>
+    <div>你好3</div>
+    <div>你好4</div>
+    <div>你好5</div>
+    <div>你好6</div>
+    <div>你好7</div>
+    <div>你好8</div>
+    <div>你好9</div>
+    <div>你好10</div>
+
+    <script>
+        // 拖动滚动条 有条件添加或删除。show累
+        const div = document.querySelectorAll('div')
+
+        window.addEventListener('scroll', showFn)
+        showFn()
+
+        function showFn() {
+            div.forEach(div => {
+                if (window.innerHeight /5*4 > parseInt(div.getBoundingClientRect().top)) {
+                    div.classList.add('show')
+                } else {
+                    div.classList.remove('show')
+                }
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>

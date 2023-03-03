@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+</head>
+<body>
+    <p>页面没有找到，5秒后之后将会带您进入新浪首页</p>
+    <script>
+        const p =document.querySelector('p')
+        
+        let num = 4
+        let timer
+        clearInterval(timer)
+        timer = setInterval(() => {
+            if(num < 0){
+                clearInterval(timer)
+                // window.location.href = 'http://www.sina.com.cn'
+                document.location.href = 'http://www.sina.com.cn'
+            }else{
+                p.innerHTML = `页面没有找到，${num}秒后之后将会带您进入新浪首页`
+                num--
+            }
+        }, 1000);
+
+        // Location = 'http://www.sina.com.cn'
+    </script>
+</body>
+</html>

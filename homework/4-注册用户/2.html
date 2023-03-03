@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="success">
+        <p>恭喜注册成功</p>
+        <ul>
+            <li>邮箱地址：</li>
+            <li>密码：</li>
+            <li>手机号：</li>
+        </ul>
+    </div>
+    <script>
+        
+        
+        
+        const liAll = document.querySelectorAll('li')
+        const queryStr = window.location.search
+        const arr = queryStr.slice(1).split('&')
+
+        let email = arr[0].slice(6).split('%')
+        let email1 = email[0]+ '@' + email[1]
+        
+
+        let pw = arr[1].slice(3)
+        console.log(pw);
+
+        let phone = arr[2].slice(6)
+        console.log(phone);
+
+        liAll[0].innerHTML=`邮箱地址：${email1}`
+        liAll[1].innerHTML=`密码：${pw}`
+        liAll[2].innerHTML=`手机号：${phone}`
+
+    </script>
+</body>
+
+</html>

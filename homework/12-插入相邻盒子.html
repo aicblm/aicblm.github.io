@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 4px;
+            border: 4px solid black;
+            display: inline-block;
+            background-color: red;
+        }
+
+        button {
+            width: 70px;
+            height: 50px;
+            background-color: yellow;
+            margin-top: 8px;
+            margin: 15px 0 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>选择一个盒子 再点击按钮</p>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <button class="before">前插</button>
+    <button class="after">后插</button>
+    <button class="reset">重置</button>
+
+    <script>
+        //获取元素
+        const box = document.querySelector('section')
+        // const div1 = document.querySelectorAll('div')[0]
+        // const div2 = document.querySelectorAll('div')[1]
+        // const div3 = document.querySelectorAll('div')[2]
+        // const div4 = document.querySelectorAll('div')[3]
+        const beforeBtn = document.querySelector('.before')
+        const afterBtn = document.querySelector('.after')
+        const resetBtn = document.querySelector('.reset')
+
+
+        //变量
+        let activeEleme = null
+
+        //初始化
+        function init() {
+            const boxArr = document.querySelectorAll('section div')
+            for (let i = 0; i < boxArr.length; i++) {
+                // boxArr[i].addEventListener('click', function() {
+                //     //清空上一次所有边框色
+                //     for(let j=0; j<boxArr.length; j++){
+                //         boxArr[j].style.borderColor = 'black'
+                //     }
+                //     //边框变色
+                //     this.style.borderColor = 'yellow'
+                //     //存储点击的目标元素
+                //     activeEleme = this
+                // })
+
+                //注册点击事件函数 如果把上面的打开就把注册点击事件函数的这部分注释掉
+                addEvent(boxArr[i])
+            }
+        }
+        init()
+
+
+        
+        
+
+        //点击前插按钮
+        beforeBtn.addEventListener('click', () => {
+            //做什么,创建一个div
+            let tempDiv = document.createElement('div')
+            //给div添加随机背景色
+            if (activeEleme) {
+                activeEleme.insertAdjacentElement('beforeBegin', tempDiv)
+            }
+            addEvent(tempDiv)
+            tempDiv.style.backgroundColor = `rgb(${color()},${color()},${color()})`
+        })
+
+        //点击后插按钮
+        afterBtn.addEventListener('click', () => {
+            //做什么,创建一个div
+            let tempDiv = document.createElement('div')
+            //给div添加随机背景色
+            if(activeEleme){
+                activeEleme.insertAdjacentElement('afterend', tempDiv)
+            }
+            addEvent(tempDiv)
+            tempDiv.style.backgroundColor = `rgb(${color()},${color()},${color()})`
+        })
+
+        //点击重置按钮
+        resetBtn.addEventListener('click', () => {
+            // window.location.reload()
+
+            while (box.firstChild) {
+                box.removeChild(box.firstChild)
+            }
+
+            for(let i=0;i<4;i++){
+                let tempDiv = document.createElement('div')
+                box.appendChild(tempDiv)
+                addEvent(tempDiv)
+            }
+
+        })
+
+        //注册点击事件函数
+        function addEvent(ele) {
+            ele.addEventListener('click', function () {
+                //清空上一次所有边框色
+                const boxArr2 = document.querySelectorAll('section div')
+                for (let j = 0; j < boxArr2.length; j++) {
+                    boxArr2[j].style.borderColor = 'black'
+                }
+                //边框变色
+                ele.style.borderColor = 'yellow'
+                //存储点击的目标元素
+                activeEleme = ele
+            })
+        }
+        // 随机色
+        function color() {
+            return Math.random() *(255-150)+150
+        }
+
+    </script>
+</body>
+
+</html>

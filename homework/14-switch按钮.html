@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch按钮</title>
+    <style>
+        .con {
+            width: 600px;
+            height: 200px;
+            background-color: rgb(202, 202, 202);
+            position: relative;
+            border-radius: 100px;
+            margin: 250px auto;
+            box-shadow: inset 0px 0px 20px 0px #000;
+        }
+
+
+        .switch {
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            position: absolute;
+            border-radius: 100%;
+            left: 0px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+            transition: 0.5s;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="con">
+        <div class="switch gong">黑</div>
+    </div>
+    <script>
+        const swiTch = document.querySelector('.switch')
+        let fd = true
+        swiTch.onclick = () => {
+            if (fd) {
+                swiTch.style.left = '400px'
+                swiTch.innerHTML = '白'
+                document.body.style.backgroundColor = '#000'
+            }else{
+                swiTch.style.left = '0px'
+                swiTch.innerHTML = '黑'
+                document.body.style.backgroundColor = '#fff'
+            }
+            fd = !fd
+        }
+    </script>
+</body>
+
+</html>
