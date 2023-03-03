@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3925746_w4f0f9mbo.css">
+    <style>
+        div{
+            width: 400px;
+            height: 600px;
+            /* background:背景色 背景图 重复  */
+            background: url(./2.jpg) no-repeat 0% 0% / cover;
+            position: relative;
+            overflow: hidden;
+        }
+        .iconfont{
+            color: red;
+            font-size: 60px;
+            position: absolute;
+
+            /* 红心位置思路1:添加偏移 */
+            /* transform: translate(-50%,-50%); */
+
+            
+            animation: big .5s linear;
+        }
+        @keyframes big {
+            form{
+                transform:scale(0);
+                opacity: 1;
+            }
+            to{
+                transform:scale(10);
+                opacity: 0;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- <i class="iconfont icon-aixin"></i> -->
+<div></div>
+<script>
+    const div = document.querySelector('div')
+
+    div.addEventListener('dblclick',(ev)=>{
+        let heart = document.createElement('i')
+        heart.classList.add('iconfont')
+        heart.classList.add('icon-aixin')
+
+        // 红心位置思路1 ：给icon-aixin类里添加偏移
+        // heart.style.left = ev.clientX - div.offsetLeft  + "px" 
+        // heart.style.top = ev.clientY - div.offsetTop  + "px"
+
+        div.appendChild(heart)
+
+        // 红心位置思路2
+        heart.style.left = ev.clientX - div.offsetLeft - heart.offsetWidth/2 + "px" 
+        heart.style.top = ev.clientY - div.offsetTop - heart.offsetHeight/2 + "px"
+        heart.style.transform = 'scale(2)'
+        // heart.style.
+
+        setTimeout(() => {
+            heart.remove()
+        }, 400);
+    })
+</script>
+</body>
+</html>

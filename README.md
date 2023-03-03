@@ -21,7 +21,7 @@
 17.Switch按钮1<br>
 18.Switch按钮2<br>
 19.选择APP<br>
-20.<a href = './movement/7-手风琴'>手风琴效果</a><br>
+20.手风琴效果<br>
 21.QQ列表<br>
 22.常见问题效果<br>
 23.鼠标格子<br>
