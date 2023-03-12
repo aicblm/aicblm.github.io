@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            border: 1px solid black;
+            width: 200px;
+        }
+
+        img {
+            transform: rotate(-90deg);
+            vertical-align: middle;
+        }
+
+        h2 {
+            width: 200px;
+            height: 30px;
+            background-color: aqua;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        ul{
+            max-height: 150px;
+            transition: .5s;
+            overflow: hidden;
+        }
+        li {
+            padding-left: 20px;
+            text-align: left;
+            list-style: none;
+            width: 180px;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        .ul{
+            max-height: 0;
+            overflow: hidden;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>我的好友</h2>
+        <ul class="ul">
+            <li>
+                朋友1
+            </li>
+            <li>
+                朋友1
+            </li>
+            <li>
+                朋友1
+            </li>
+        </ul>
+        <h2>企业好友</h2>
+        <ul class="ul">
+            <li>
+                朋友2
+            </li>
+            <li>
+                朋友2
+            </li>
+            <li>
+                朋友2
+            </li>
+            <li>
+                朋友2
+            </li>
+        </ul>
+        <h2>黑名单</h2>
+        <ul class="ul">
+            <li>
+                朋友3
+            </li>
+            <li>
+                朋友3
+            </li>
+            <li>
+                朋友3
+            </li>
+        </ul>
+    </div>
+    <script>
+        var h2 = document.querySelectorAll('h2')
+        var ul = document.querySelectorAll('ul')
+        var li = document.querySelectorAll('li')
+        
+        
+
+        for (var i = 0; i < li.length; i++) {
+            li[i].num = false
+            li[i].onclick = function () {
+                if (this.num) {
+                    this.style.background = ''
+                    
+                } else {
+                    for(var j = 0 ; j < li.length ; j++){
+                        li[j].style.background = ''
+                        li[j].num = false
+                    }
+                    this.style.background = 'yellow'
+                }
+                this.num = !this.num
+            }
+        }
+
+        
+        for(let o = 0 ;o < h2.length ; o++){
+            h2[o].bt = false
+            h2[o].onclick = function(){
+                if(h2[o].bt){
+                    ul[o].className = 'ul'
+                    
+                }else{
+                    for(var i = 0 ; i <ul.length; i++){
+                        ul[i].className = 'ul'
+                        h2[i].bt = false
+                        
+                    }
+                    ul[o].className = ''
+                    
+                }
+                h2[o].bt = !h2[o].bt
+            }
+        }
+    </script>
+</body>
+</html>

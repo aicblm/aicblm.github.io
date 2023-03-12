@@ -2,33 +2,7 @@
 
 ##js作业库2023-3-1
 
-<ul>
 
-</ul>
-1.左右飞入的盒子()<br>
-2.递归文字动画(setTimeout slice() 递归)<br>
-3.微博录入统计(composition事件)<br>
-4.用户注册页(location slice() split())<br>
-5.404页面跳转(location setLnterval())<br>
-6.球的口字运动('')<br>
-7.双击添加爱心<br>
-8.隐藏的搜索框<br>
-9.登录框波浪交互<br>
-10.猜class<br>
-11.激活主导航<br>
-12.插入盒子<br>
-13上移下移<br>
-14.switch按钮<br>
-15.百万富翁<br>
-16.属性清除器<br>
-17.Switch按钮1<br>
-18.Switch按钮2<br>
-19.选择APP<br>
-20.手风琴效果<br>
-21.QQ列表<br>
-22.常见问题效果<br>
-23.悬停色块<br>
-24.Github用户资料查询APP<br>
 1.<a href="./homework/1-左右飞入的盒子.html">左右飞入的盒子()</a><br>
 2.<a href="./homework/2-T定时器.html">递归文字动画(setTimeout slice() 递归)</a><br>
 3.<a href="./homework/3-微博录入框.html">微博录入统计(composition事件)</a><br>
@@ -49,7 +23,7 @@
 18.<a href="./homework/18-Switch按钮2.html" target="_blank">Switch按钮2</a><br>
 19.<a href="" class="not">选择APP</a><br>
 20.<a href="./homework/20-手风琴.html" target="_blank">手风琴效果</a><br>
-21.<a href="" class="not">QQ列表</a><br>
+21.<a href="./homework/21-qq列表.html" class="not">QQ列表</a><br>
 22.<a href="" class="not">常见问题效果</a><br>
 23.<a href="./homework/23-悬停色块.html">悬停色块</a><br>
 24.<a href="./homework/24-github.html">Github用户资料查询APP</a><br>
