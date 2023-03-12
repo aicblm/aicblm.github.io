@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+</style>
+<body>
+    <ul class="menu">
+        <li>
+            <a href="#">菜单1</a>
+            <button class="btn1">Up</button>
+            <button class="btn2">Down</button>
+        </li>
+        <li>
+            <a href="#">菜单2</a>
+            <button>Up</button>
+            <button>Down</button>
+        </li>
+        <li>
+            <a href="#">菜单3</a>
+            <button>Up</button>
+            <button>Down</button>
+        </li>
+        <li>
+            <a href="#">菜单4</a>
+            <button>Up</button>
+            <button>Down</button>
+        </li>
+        <li>
+            <a href="#">菜单5</a>
+            <button>Up</button>
+            <button>Down</button>
+        </li>
+    </ul>
+    <script>
+        // const butX = document.querySelectorAll('button')
+        const butS1 = document.querySelectorAll('button')[0]
+        const butS2 = document.querySelectorAll('button')[2]
+        const butS3 = document.querySelectorAll('button')[4]
+        const butS4 = document.querySelectorAll('button')[6]
+        const butS5 = document.querySelectorAll('button')[8]
+
+        const butX1 = document.querySelectorAll('button')[1]
+        const butX2 = document.querySelectorAll('button')[3]
+        const butX3 = document.querySelectorAll('button')[5]
+        const butX4 = document.querySelectorAll('button')[7]
+        const butX5 = document.querySelectorAll('button')[9]
+
+        // const li = document.querySelectorAll('li')
+        const li1 = document.querySelectorAll('li')[0]
+        const li2 = document.querySelectorAll('li')[1]
+        const li3 = document.querySelectorAll('li')[2]
+        const li4 = document.querySelectorAll('li')[3]
+        const li5 = document.querySelectorAll('li')[4]
+
+        // Up:上
+        butS1.addEventListener('click',()=>{
+            li1.insertBefore(li5.firstElementChild,li1.firstElementChild)
+            li5.insertBefore(li1.firstElementChild.nextElementSibling,li5.firstElementChild)
+        })
+        butS2.addEventListener('click',()=>{
+            li1.insertBefore(li2.firstElementChild,li1.firstElementChild)
+            li2.insertBefore(li1.firstElementChild.nextElementSibling,li2.firstElementChild)
+        })
+        butS3.addEventListener('click',()=>{
+            li2.insertBefore(li3.firstElementChild,li2.firstElementChild)
+            li3.insertBefore(li2.firstElementChild.nextElementSibling,li3.firstElementChild)
+        })
+        butS4.addEventListener('click',()=>{
+            li3.insertBefore(li4.firstElementChild,li3.firstElementChild)
+            li4.insertBefore(li3.firstElementChild.nextElementSibling,li4.firstElementChild)
+        })
+        butS5.addEventListener('click',()=>{
+            li4.insertBefore(li5.firstElementChild,li4.firstElementChild)
+            li5.insertBefore(li4.firstElementChild.nextElementSibling,li5.firstElementChild)
+        })
+
+
+
+
+
+
+        // Down :下
+        butX1.addEventListener('click',()=>{
+            li1.insertBefore(li2.firstElementChild,li1.firstElementChild)
+            li2.insertBefore(li1.firstElementChild.nextElementSibling,li2.firstElementChild)
+        })
+        butX2.addEventListener('click',()=>{
+            li2.insertBefore(li3.firstElementChild,li2.firstElementChild)
+            li3.insertBefore(li2.firstElementChild.nextElementSibling,li3.firstElementChild)
+        })
+        butX3.addEventListener('click',()=>{
+            li3.insertBefore(li4.firstElementChild,li3.firstElementChild)
+            li4.insertBefore(li3.firstElementChild.nextElementSibling,li4.firstElementChild)
+        })
+        butX4.addEventListener('click',()=>{
+            li4.insertBefore(li5.firstElementChild,li4.firstElementChild)
+            li5.insertBefore(li4.firstElementChild.nextElementSibling,li5.firstElementChild)
+        })
+        butX5.addEventListener('click',()=>{
+            li5.insertBefore(li1.firstElementChild,li5.firstElementChild)
+            li1.insertBefore(li5.firstElementChild.nextElementSibling,li1.firstElementChild)
+        })
+
+
+        
+
+        
+    </script>
+</body>
+
+</html>
