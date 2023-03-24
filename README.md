@@ -1,7 +1,14 @@
 # aicblm.github.io
 
+<link rel="stylesheet" href="./style/style.css">
+<script src="./style/java.js"></script>
 ##js作业库2023-3-1
 
+<div>
+<h1>js作业库2023-3-1</h1>
+        <div id="adtitle">
+            <p>不可点的地址为<span class="not">红色</span>,半成品<span class="half">蓝色</span></p>
+        </div>
 
 1.<a href="./homework/1-左右飞入的盒子.html">左右飞入的盒子()</a><br>
 2.<a href="./homework/2-T定时器.html">递归文字动画(setTimeout slice() 递归)</a><br>
@@ -30,3 +37,4 @@
 25.<a href="./homework/25-书单管理.html" class="">书单管理器</a><br>
 26.<a href="./homework/26-懒加载.html" class="">懒加载</a><br>
 27.<a href="./homework/27-瀑布流(waterfall stream).html" class="">瀑布流</a><br>
+</div>
