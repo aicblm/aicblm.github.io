@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 600px;
+            margin: 0 auto;
+            border: 1px red solid;
+            position: relative;
+            /* display: flex;
+            flex-wrap: wrap; */
+            /* flex-direction: column; */
+        }
+
+        .waterDiv{
+            position: absolute;
+        }
+
+        .waterImg
+
+
+        img{
+            display: block;
+            /* vertical-align:text-bottom; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div class="waterDiv">
+            <img src="https://via.placeholder.com/150x200" alt="" class="waterImg">
+        </div> -->
+    </div>
+    <script>
+
+        // async function getData() {
+        //     let url = `https://api.unsplash.com/photos/random?count=10&client_id=duFg7ITxlJ63gJirwQI3nzBv6PH54FwEFOrEhFastyE`
+        //     let request = await fetch(url).then(response => response.json())
+
+        // request.forEach(data => {
+        //     let app = document.querySelector('#app')
+        //     let div = document.createElement('div')
+        //     div.classList = 'waterDiv'
+        //     div.innerHTML = `
+        //     <img src="${data.urls.raw}" alt="" class="waterImg">
+        //     `
+        //     app.appendChild(div)
+        // });
+
+        // }
+        // getData()
+
+        let app = document.querySelector('#app')
+        let col = 3
+        let heightArr = [0,0,0]
+
+        function getMinHeightIndex(arr) {
+            return arr.indexOf(Math.min.apply(null,arr))
+        }
+        let r = getMinHeightIndex(heightArr)
+
+
+        let no = true
+        let API = `https://api.unsplash.com/photos/random?count=10&client_id=T9XZUDRdxKYy4W9b_gmU_GuVPinc8QiWjHKzptwhib8`
+        function waterFall(API) {
+            let fetchData = async function (API) {
+                return await (await fetch(API)).json()
+            }
+            fetchData(API).then(data => {
+                data.forEach(data => {
+                    let div = document.createElement('div')
+                    let img = document.createElement('img')
+                    img.style.width = '100%'
+                    img.style.height = '100%'
+                    img.className = 'waterImg'
+                    img.src = data.urls.small
+                    
+                    div.className = 'waterDiv'
+                    // 设置div的width
+                    div.style.width = app.offsetWidth/3 + 'px'
+                    div.style.height = app.offsetWidth/col * data.height/data.width + 'px'
+                    div.style.top = heightArr[getMinHeightIndex(heightArr)] + 'px'
+                    div.style.left = getMinHeightIndex(heightArr) * parseInt(div.style.width)  + 'px'
+                    heightArr[getMinHeightIndex(heightArr)] += parseInt(div.style.height)
+ 
+                    div.appendChild(img)
+                    app.appendChild(div)
+                
+                });
+                no = true
+            })
+        }
+        waterFall(API)
+        
+
+        window.addEventListener('scroll', () => {
+            let {clientHeight:a,scrollTop:b,scrollHeight:c} = document.documentElement
+            if (a + b >= c && no) {
+                waterFall(API)
+                no = false
+            }
+        })
+    </script>
+</body>
+
+</html>

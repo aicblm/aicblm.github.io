@@ -27,3 +27,6 @@
 22.<a href="" class="not">常见问题效果</a><br>
 23.<a href="./homework/23-悬停色块.html">悬停色块</a><br>
 24.<a href="./homework/24-github.html">Github用户资料查询APP</a><br>
+25.<a href="./homework/25-书单管理.html" class="">书单管理器</a><br>
+26.<a href="./homework/26-懒加载.html" class="">懒加载</a><br>
+27.<a href="./homework/27-瀑布流(waterfall stream).html" class="">瀑布流</a><br>
